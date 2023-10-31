@@ -4,7 +4,6 @@ import shutil
 import def_award_list
 
 def sorting_awards(imdb):
-  # os.chdir(dir_name)
   for name_award in def_award_list.award_list(imdb):
     if os.path.isfile(name_award['award_name'] + '.txt'):
       name_award_obj = open(name_award['award_name']+'.txt', 'a')
@@ -20,5 +19,4 @@ def sorting_awards(imdb):
     for letter in string.ascii_uppercase:
       if awards_file.startswith(letter):
          shutil.move(os.path.abspath(awards_file), letter)
-
-  # os.chdir('..')
+         
