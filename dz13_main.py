@@ -23,10 +23,9 @@ for dir_name in os.listdir():
     if dir_name in film['genres']:
       os.chdir(dir_name)
       if os.path.isfile('file_info.csv'):
-         file_info_obj = open('file_info.csv', 'a', newline='')
-         writer = csv.writer(file_info_obj)
-         writer.writerow(film.values())
-         file_info_obj.close()
+         with open('file_info.csv', 'a', newline='') as file_info_obj:
+           writer = csv.writer(file_info_obj)
+           writer.writerow(film.values())
       else:
         with open ('file_info.csv', 'w', newline='') as file_info_obj:
           writer = csv.DictWriter(file_info_obj, fieldnames= ['title', 'year', 'rating', 'type', 'genres'])
