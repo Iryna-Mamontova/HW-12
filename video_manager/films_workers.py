@@ -10,19 +10,20 @@ class Film:
    self.running_time = running_time
    self.country = country
    self.imdb = imdb
+   self.upload_file()
 
-  @classmethod
-  def upload_file(cls):
+  
+  def upload_file(self):
     for letter in string.ascii_uppercase:
-      if cls.title.startswith(letter):
-         os.chdir('film_player/film_storage/' + letter)
-         with open(cls.title.replace(' ', '_') + '.txt', 'w') as film_name_obj:
-          pass
-        #  shutil.move(os.path.abspath(cls.title.replace(' ', '_') + '.txt'), letter)
-         os.chdir('film_player/film_storage/')
+      if self.title.startswith(letter): 
+         os.chdir('d:/IRA WORK/Python/hilel/HW_12/film_player/film_storage/' + letter)
+         with open(self.title.replace(' ', '_') + '.txt', 'w') as film_name_obj: 
+            pass
+         os.chdir('d:/IRA WORK/Python/hilel/HW_12')
+  
 
   def get_film_address(self):
-    os.chdir('film_player/film_storage/' + self.title[0])
+    os.chdir('d:/IRA WORK/Python/hilel/HW_12/film_player/film_storage/' + self.title[0])
     self.storage_address = os.path.abspath(self.title.replace(' ', '_') + '.txt')
     print(self.storage_address)
-    os.chdir('film_player')
+    os.chdir('d:/IRA WORK/Python/hilel/HW_12')
